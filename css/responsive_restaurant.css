@@ -2,3 +2,22 @@
   display: flex;
   flex-wrap: wrap;
 }
+
+@media (max-width:640px){
+  nav h1  {
+    white-space: pre-line;
+    font-size: 16pt;
+  }
+  #breadcrumb{
+    width:100%;
+  }
+  .inside #map-container {
+      width: 90%;
+      height: 250px;
+      margin: 20px;
+      position:relative;
+      top: 10%;
+      right: 5%;
+      left: 5%;
+  }
+}
