@@ -151,25 +151,30 @@ class DBHelper {
    Default to medium sized image, fallback to resaurant.id if former is missing
    */
    static imageUrlForRestaurant(restaurant) {
-     let url = `/img/${(restaurant.photograph.split('.')[0]||restaurant.id)}-medium.jpg`;
-     return url;
-   }
-   static imageSrcsetForRestaurant(restaurant) {
-    const imageSrc = `/img/${(restaurant.photograph.split('.')[0]||restaurant.id)}`;
-    return `${imageSrc}-small.jpg 300w,
-            ${imageSrc}-medium.jpg 600w,
-            ${imageSrc}-large.jpg 800w`;
-  }
+  let url = `/img/${(restaurant.photograph.split('.')[0]||restaurant.id)}-medium.jpg`;
+  return url;
+}
 
-  /**
-   * Restaurant sizes attribute so browser knows image sizes before deciding
-   * what image to download.
-   */
-  static imageSizesForRestaurant(restaurant) {
-    return `(max-width: 360px) 280px,
-            (max-width: 600px) 600px,
-            400px`;
-  }
+/**
+ * Restaurant srcset attribute for browser to decide best resolution. It uses restaurant.photograph
+ * and fallbacks to restaurant.id if former is missing.
+ */
+static imageSrcsetForRestaurant(restaurant) {
+  const imageSrc = `/img/${(restaurant.photograph.split('.')[0]||restaurant.id)}`;
+  return `${imageSrc}-small.jpg 300w,
+          ${imageSrc}-medium.jpg 600w,
+          ${imageSrc}-large.jpg 800w`;
+}
+
+/**
+ * Restaurant sizes attribute so browser knows image sizes before deciding
+ * which image to download.
+ */
+static imageSizesForRestaurant(restaurant) {
+  return `(max-width: 360px) 280px,
+          (max-width: 600px) 600px,
+          400px`;
+}
 
   /**
    * Map marker for a restaurant.
