@@ -4,10 +4,12 @@
 }
 
 @media (max-width:640px){
-  nav h1  {
+  nav h1 a {
     white-space: pre-line;
-    font-size: 16pt;
+    font-size: 18pt;
+    display: block;
   }
+
   #breadcrumb{
     width:100%;
   }
@@ -20,4 +22,31 @@
       right: 5%;
       left: 5%;
   }
+}
+
+/* for tablet landscape view */
+@media (min-width: 641px){
+    #reviews-list li {
+        width: 77%;
+    }
+    nav h1 a {
+        font-size: 40px;
+        margin-left: 15px;
+    }
+
+    .inside #map-container {
+        width: 90%;
+        height: 350px;
+        margin-left: -20px;
+        position:relative;
+        top: 10%;
+        right: 5%;
+        left: 5%;
+    }
+    #restaurant-name {
+        font-size: 16pt;
+    }
+    #restaurant-img{
+      padding-top: 10px;
+    }
 }
